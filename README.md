@@ -4,7 +4,7 @@ Stopwatch app made using flutter, dart. With neumorphic design.
 
 ## Features
 
-- **Neumorphic Design**: TimeKit boasts a sleek and modern neumorphic design that not only looks appealing but also provides an intuitive user experience.
+- **Neumorphic Design**: It boasts a sleek and modern neumorphic design that not only looks appealing but also provides an intuitive user experience.
 
 - **Stopwatch**: Whether you need to time your workouts, cooking, or any other activity, the stopwatch feature offers precision and ease of use.
 
@@ -12,14 +12,13 @@ Stopwatch app made using flutter, dart. With neumorphic design.
 
 ## Getting Started
 
-To get started with the Car Control Dashboard app, follow these steps:
+To get started with the app, follow these steps:
 
 1. **Prerequisites:** Make sure you have Flutter installed on your system. If you don't have it yet, you can install it from the official Flutter website.
 
 2. **Clone the repository:** Clone this repository to your local machine using the following command:
 
 3. **Install Dependencies:** Navigate to the project directory and install the required dependencies:
-
 
 4. **Run the App:** Now, you can run the app on your connected device or emulator:
 
