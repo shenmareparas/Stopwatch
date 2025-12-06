@@ -24,17 +24,15 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               Align(
                 alignment: Alignment.topCenter,
                 child: Text(
                   'Timer',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineLarge!
-                      .copyWith(color: Colors.black, fontSize: 40),
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Colors.black,
+                    fontSize: 40,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -43,26 +41,23 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                   if (state is StartSate) {
                     return Text(
                       '${state.hour}:${state.min}:${state.sec}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontSize: 30),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.headlineSmall!.copyWith(fontSize: 30),
                     );
                   } else if (state is PauseSate) {
                     return Text(
                       '${state.hour}:${state.min}:${state.sec}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontSize: 30),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.headlineSmall!.copyWith(fontSize: 30),
                     );
                   } else if (state is StopSate) {
                     return Text(
                       '${state.hour}:${state.min}:${state.sec}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontSize: 30),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.headlineSmall!.copyWith(fontSize: 30),
                     );
                   } else {
                     return const SizedBox();
@@ -88,7 +83,8 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                     height: MediaQuery.of(context).size.width - 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
-                          MediaQuery.of(context).size.width),
+                        MediaQuery.of(context).size.width,
+                      ),
                       gradient: LinearGradient(
                         colors: [shadowColor, lightShadowColor],
                         begin: Alignment.topLeft,
@@ -96,31 +92,46 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                            color: shadowColor,
-                            offset: const Offset(8, 6),
-                            blurRadius: 12),
+                          color: shadowColor,
+                          offset: const Offset(8, 6),
+                          blurRadius: 12,
+                        ),
                         BoxShadow(
-                            color: lightShadowColor,
-                            offset: const Offset(-8, -6),
-                            blurRadius: 12),
+                          color: lightShadowColor,
+                          offset: const Offset(-8, -6),
+                          blurRadius: 12,
+                        ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: 10,
-                      left: 10,
-                      right: 10,
-                      bottom: 10,
-                      child: BlocConsumer<StopwatchCubit, StopwatchStates>(
-                        listener: (context, state) {
-                          if (state is StartSate) {
-                            sec = BlocProvider.of<StopwatchCubit>(context).sec;
-                          }
-                        },
-                        builder: (context, state) {
-                          if (state is StartSate) {
-                            return AnalogClock(
-                              isLive: state is StartSate,
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 10,
+                    child: BlocConsumer<StopwatchCubit, StopwatchStates>(
+                      listener: (context, state) {
+                        if (state is StartSate) {
+                          sec = BlocProvider.of<StopwatchCubit>(context).sec;
+                        }
+                      },
+                      builder: (context, state) {
+                        if (state is StartSate) {
+                          return AnalogClock(
+                            isLive: true,
+                            hourHandColor: Colors.transparent,
+                            minuteHandColor: Colors.transparent,
+                            numberColor: Colors.black45,
+                            secondHandColor: Colors.pinkAccent,
+                            showNumbers: true,
+                            showAllNumbers: true,
+                            showDigitalClock: false,
+                            datetime: DateTime(2023, 1, 0, 0, 0, sec),
+                          );
+                        } else {
+                          return Center(
+                            child: AnalogClock(
+                              isLive: false,
                               hourHandColor: Colors.transparent,
                               minuteHandColor: Colors.transparent,
                               numberColor: Colors.black45,
@@ -129,31 +140,12 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                               showAllNumbers: true,
                               showDigitalClock: false,
                               datetime: DateTime(2023, 1, 0, 0, 0, sec),
-                            );
-                          } else {
-                            return Center(
-                              child: AnalogClock(
-                                isLive: false,
-                                hourHandColor: Colors.transparent,
-                                minuteHandColor: Colors.transparent,
-                                numberColor: Colors.black45,
-                                secondHandColor: Colors.pinkAccent,
-                                showNumbers: true,
-                                showAllNumbers: true,
-                                showDigitalClock: false,
-                                datetime: DateTime(
-                                  2023,
-                                  1,
-                                  0,
-                                  0,
-                                  0,
-                                  sec,
-                                ),
-                              ),
-                            );
-                          }
-                        },
-                      )),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
                 ],
               ),
               const Spacer(),
@@ -177,8 +169,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                         state is StartSate
                             ? GestureDetector(
                                 onTap: () {
-                                  BlocProvider.of<StopwatchCubit>(context)
-                                      .pauseTimer();
+                                  BlocProvider.of<StopwatchCubit>(
+                                    context,
+                                  ).pauseTimer();
                                 },
                                 child: CircularSoftButton(
                                   radius: 40,
@@ -187,8 +180,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                               )
                             : GestureDetector(
                                 onTap: () {
-                                  BlocProvider.of<StopwatchCubit>(context)
-                                      .resumeTimer();
+                                  BlocProvider.of<StopwatchCubit>(
+                                    context,
+                                  ).resumeTimer();
                                 },
                                 child: CircularSoftButton(
                                   radius: 40,
@@ -197,14 +191,15 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                               ),
                         GestureDetector(
                           onTap: () {
-                            BlocProvider.of<StopwatchCubit>(context)
-                                .stopTimer();
+                            BlocProvider.of<StopwatchCubit>(
+                              context,
+                            ).stopTimer();
                           },
                           child: CircularSoftButton(
                             radius: 40,
                             icon: const Icon(Icons.stop),
                           ),
-                        )
+                        ),
                       ],
                     );
                   }
