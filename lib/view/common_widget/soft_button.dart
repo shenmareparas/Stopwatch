@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../res/constants.dart';
+import '../../res/neumorphic_theme.dart';
 
 class CircularSoftButton extends StatelessWidget {
   final double radius;
@@ -22,16 +22,22 @@ class CircularSoftButton extends StatelessWidget {
             width: radius * 2,
             height: radius * 2,
             decoration: BoxDecoration(
-              color: backgroundColor,
+              color: Theme.of(
+                context,
+              ).extension<NeumorphicTheme>()!.backgroundColor,
               borderRadius: BorderRadius.circular(radius),
               boxShadow: [
                 BoxShadow(
-                  color: shadowColor,
+                  color: Theme.of(
+                    context,
+                  ).extension<NeumorphicTheme>()!.shadowColor,
                   offset: const Offset(8, 6),
                   blurRadius: 12,
                 ),
                 BoxShadow(
-                  color: lightColor,
+                  color: Theme.of(
+                    context,
+                  ).extension<NeumorphicTheme>()!.lightShadowColor,
                   offset: const Offset(-8, -6),
                   blurRadius: 12,
                 ),

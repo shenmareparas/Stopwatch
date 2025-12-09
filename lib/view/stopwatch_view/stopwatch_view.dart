@@ -2,7 +2,7 @@ import 'package:analog_clock/analog_clock.dart';
 import 'package:clock_analog/view_model/bloc/stopwatch_bloc/stopwatch_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../res/constants.dart';
+import '../../res/neumorphic_theme.dart';
 import '../../view_model/bloc/stopwatch_bloc/stopwatch_cubit.dart';
 import '../common_widget/soft_button.dart';
 
@@ -17,7 +17,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Theme.of(
+        context,
+      ).extension<NeumorphicTheme>()!.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -30,7 +32,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                 child: Text(
                   'Timer',
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Colors.black,
+                    color: Theme.of(
+                      context,
+                    ).extension<NeumorphicTheme>()!.textColor,
                     fontSize: 40,
                   ),
                 ),
@@ -41,16 +45,24 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                   if (state is StartSate) {
                     return Text(
                       '${state.hour}:${state.min}:${state.sec}',
-                      style: Theme.of(
-                        context,
-                      ).textTheme.headlineSmall!.copyWith(fontSize: 30),
+                      style: Theme.of(context).textTheme.headlineSmall!
+                          .copyWith(
+                            fontSize: 30,
+                            color: Theme.of(
+                              context,
+                            ).extension<NeumorphicTheme>()!.textColor,
+                          ),
                     );
                   } else if (state is PauseSate) {
                     return Text(
                       '${state.hour}:${state.min}:${state.sec}',
-                      style: Theme.of(
-                        context,
-                      ).textTheme.headlineSmall!.copyWith(fontSize: 30),
+                      style: Theme.of(context).textTheme.headlineSmall!
+                          .copyWith(
+                            fontSize: 30,
+                            color: Theme.of(
+                              context,
+                            ).extension<NeumorphicTheme>()!.textColor,
+                          ),
                     );
                   } else if (state is StopSate) {
                     return Text(
@@ -86,18 +98,29 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                         MediaQuery.of(context).size.width,
                       ),
                       gradient: LinearGradient(
-                        colors: [shadowColor, lightShadowColor],
+                        colors: [
+                          Theme.of(
+                            context,
+                          ).extension<NeumorphicTheme>()!.shadowColor,
+                          Theme.of(
+                            context,
+                          ).extension<NeumorphicTheme>()!.lightShadowColor,
+                        ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: shadowColor,
+                          color: Theme.of(
+                            context,
+                          ).extension<NeumorphicTheme>()!.shadowColor,
                           offset: const Offset(8, 6),
                           blurRadius: 12,
                         ),
                         BoxShadow(
-                          color: lightShadowColor,
+                          color: Theme.of(
+                            context,
+                          ).extension<NeumorphicTheme>()!.lightShadowColor,
                           offset: const Offset(-8, -6),
                           blurRadius: 12,
                         ),
@@ -121,7 +144,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                             isLive: true,
                             hourHandColor: Colors.transparent,
                             minuteHandColor: Colors.transparent,
-                            numberColor: Colors.black45,
+                            numberColor: Theme.of(
+                              context,
+                            ).extension<NeumorphicTheme>()!.textColor,
                             secondHandColor: Colors.pinkAccent,
                             showNumbers: true,
                             showAllNumbers: true,
@@ -134,7 +159,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                               isLive: false,
                               hourHandColor: Colors.transparent,
                               minuteHandColor: Colors.transparent,
-                              numberColor: Colors.black45,
+                              numberColor: Theme.of(
+                                context,
+                              ).extension<NeumorphicTheme>()!.textColor,
                               secondHandColor: Colors.pinkAccent,
                               showNumbers: true,
                               showAllNumbers: true,

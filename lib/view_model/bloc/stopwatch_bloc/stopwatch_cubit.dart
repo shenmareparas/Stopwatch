@@ -17,7 +17,6 @@ class StopwatchCubit extends Cubit<StopwatchStates> {
       isStarted = true;
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         sec++;
-        // Increment the elapsed time
 
         if (sec == 60) {
           sec = 0;
@@ -28,11 +27,7 @@ class StopwatchCubit extends Cubit<StopwatchStates> {
           hours++;
         }
 
-        emit(StartSate(
-          hours.toString(),
-          min.toString(),
-          sec.toString(),
-        ));
+        emit(StartSate(hours.toString(), min.toString(), sec.toString()));
       });
     }
   }
@@ -41,11 +36,7 @@ class StopwatchCubit extends Cubit<StopwatchStates> {
     if (isStarted) {
       isStarted = false;
       _timer.cancel();
-      emit(PauseSate(
-        hours.toString(),
-        min.toString(),
-        sec.toString(),
-      ));
+      emit(PauseSate(hours.toString(), min.toString(), sec.toString()));
     }
   }
 
@@ -54,7 +45,6 @@ class StopwatchCubit extends Cubit<StopwatchStates> {
       isStarted = true;
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         sec++;
-         // Increment the elapsed time
 
         if (sec == 60) {
           sec = 0;
@@ -65,21 +55,17 @@ class StopwatchCubit extends Cubit<StopwatchStates> {
           hours++;
         }
 
-        emit(StartSate(
-          hours.toString(),
-          min.toString(),
-          sec.toString(),
-        ));
+        emit(StartSate(hours.toString(), min.toString(), sec.toString()));
       });
     }
   }
 
   void stopTimer() {
     isStarted = false;
-    sec=0;
-    min=0;
-    hours=0;
-    _timer.cancel(); // Reset elapsed time
+    sec = 0;
+    min = 0;
+    hours = 0;
+    _timer.cancel();
     emit(StopSate('00', '00', '00'));
   }
 }

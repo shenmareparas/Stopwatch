@@ -1,6 +1,8 @@
+<img alt='App Icon' src="assets/logo.webp" width = 250/>
+
 # ⏱️ Stopwatch - Neumorphic Clock & Timer App
 
-A beautifully designed Flutter application featuring a stopwatch, analog clock, and alarm functionality with a modern neumorphic UI design.
+A beautifully designed Flutter application featuring a stopwatch and analog clock with a modern neumorphic UI design.
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.10.3+-02569B?logo=flutter)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.10.3+-0175C2?logo=dart)](https://dart.dev)
@@ -11,33 +13,35 @@ A beautifully designed Flutter application featuring a stopwatch, analog clock, 
 -   ⏱️ **Stopwatch** - Precise timing with start, stop, and reset functionality
 -   🕐 **Analog Clock** - Beautiful analog clock display with real-time updates
 -   🎨 **Neumorphic Design** - Modern, sleek soft UI design that's easy on the eyes
+-   🌗 **Dark/Light Theme** - seamless adaptability to system theme preferences
 -   📱 **Portrait Mode** - Optimized for portrait orientation
 
 ## 📸 Screenshots
 
-<p align="center">
-  <img src="assets/image1.png" width="300" alt="Screenshot 1">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/image2.png" width="300" alt="Screenshot 2">
-</p>
+<table>
+  <tr>
+    <td><img src="assets/1a.webp" width="250" alt="Image 1"/></td>
+    <td><img src="assets/2a.webp" width="250" alt="Image 2"/></td>
+  </tr>
+  <tr>
+    <td><img src="assets/1b.webp" width="250" alt="Image 4"/></td>
+    <td><img src="assets/2b.webp" width="250" alt="Image 5"/></td>
+  </tr>
+</table>
 
 ## 🛠️ Tech Stack
 
 -   **Framework:** Flutter 3.10.3+
 -   **Language:** Dart 3.10.3+
 -   **State Management:** Flutter BLoC
--   **Database:** SQLite (via sqflite)
--   **UI Library:** Flutter Neumorphic
+-   **UI Library:** Custom Neumorphic Styling, Google Nav Bar
 
 ### Key Dependencies
 
--   `flutter_neumorphic` - Neumorphic design components
 -   `flutter_bloc` - State management
--   `sqflite` - Local database
--   `alarm` - Alarm scheduling and notifications
 -   `analog_clock` - Analog clock widget
+-   `google_nav_bar` - Modern navigation bar
 -   `flutter_svg` - SVG image support
--   `path_provider` - File system access
 
 ## 🚀 Getting Started
 
@@ -101,20 +105,19 @@ lib/
 ├── main.dart              # App entry point
 ├── view/
 │   ├── splash_view/       # Splash screen
-│   └── ...                # Other views
+│   ├── clock_view/        # Analog clock
+│   └── stopwatch_view/    # Stopwatch feature
 └── ...
 
 assets/
-├── icons/                 # App icons
-└── audio/                 # Alarm sounds
+└── icons/                 # App icons
 ```
 
 ## 🎯 Usage
 
 1. **Stopwatch**: Tap the stopwatch tab to access timing features
 2. **Clock**: View the current time on a beautiful analog clock
-3. **Alarms**: Set custom alarms with your preferred notification sound
-4. **Navigation**: Use the bottom navigation bar to switch between features
+3. **Navigation**: Use the bottom navigation bar to switch between features
 
 ## 🤝 Contributing
 

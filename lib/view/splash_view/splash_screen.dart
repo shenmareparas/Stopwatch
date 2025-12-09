@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:clock_analog/res/constants.dart';
+import 'package:clock_analog/res/neumorphic_theme.dart';
 import 'package:clock_analog/view/common_widget/soft_button.dart';
 import 'package:clock_analog/view/home_view/home_view.dart';
 import 'package:clock_analog/view_model/bloc/home_bloc/home_bloc.dart';
@@ -35,7 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Theme.of(
+        context,
+      ).extension<NeumorphicTheme>()!.backgroundColor,
       body: Center(
         child: CircularSoftButton(
           radius: 60,
